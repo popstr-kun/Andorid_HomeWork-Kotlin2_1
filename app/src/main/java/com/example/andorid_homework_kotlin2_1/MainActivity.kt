@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity() {
         activityResultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()){
             result ->
             if(result.resultCode == 101 && result.data != null){
-                val b = result.data?.extras?.let {
+                result.data?.extras?.let {
                     binding.tvMeal.text = "飲料: ${it.getString("drink")}\n\n甜度: ${it.getString("sugar")}\n\n冰塊: ${it.getString("ice")}\n\n"
                 }
             }

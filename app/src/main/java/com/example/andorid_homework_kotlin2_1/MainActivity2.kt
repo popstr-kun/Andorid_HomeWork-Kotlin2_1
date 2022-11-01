@@ -52,9 +52,7 @@ class MainActivity2 : AppCompatActivity() {
                 putString("ice",iceOpt)
             }
 
-
             intent.putExtras(bundle)
-
             setResult(101,intent)
             finish()
 
