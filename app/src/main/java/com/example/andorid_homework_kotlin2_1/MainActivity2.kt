@@ -42,13 +42,12 @@ class MainActivity2 : AppCompatActivity() {
 
         binding.btnSend.setOnClickListener{
 
-            val drink = binding.edDrink.text.toString()
             val intent = Intent()
             val bundle = Bundle()
 
             with(bundle){
                 putString("sugar",sugar)
-                putString("drink",drink)
+                putString("drink",binding.edDrink.text.toString())
                 putString("ice",iceOpt)
             }
 
