@@ -21,8 +21,7 @@ class MainActivity : AppCompatActivity() {
         //setContentView(R.layout.activity_main)
 
         binding.btnChoice.setOnClickListener{
-            val intent = Intent(this,MainActivity2::class.java)
-            startActivityForResult(intent,1)
+            startActivityForResult(Intent(this,MainActivity2::class.java),1)
             //activityResultLauncher.launch(intent)
         }
 
@@ -37,10 +36,11 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         data?.extras?.let {
-            binding.tvMeal.text = "飲料: ${it.getString("drink")}\n\n甜度: ${it.getString("sugar")}\n\n冰塊: ${it.getString("ice")}\n\n"
+            binding.tvMeal.text = String.format("飲料: ${it.getString("drink")}\n\n甜度: ${it.getString("sugar")}\n\n冰塊: ${it.getString("ice")}\n\n")
         }
     }
 
