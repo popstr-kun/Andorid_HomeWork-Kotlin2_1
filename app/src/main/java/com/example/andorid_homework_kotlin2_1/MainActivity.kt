@@ -39,8 +39,14 @@ class MainActivity : AppCompatActivity() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        data?.extras?.let {
-            binding.tvMeal.text = String.format("飲料: ${it.getString("drink")}\n\n甜度: ${it.getString("sugar")}\n\n冰塊: ${it.getString("ice")}\n\n")
+        if(resultCode == 101 && requestCode == 1 && data != null) {
+            data.extras?.let {
+                binding.tvMeal.text = String.format(
+                    "飲料: ${it.getString("drink")}\n\n" +
+                    "甜度: ${it.getString("sugar")}\n\n" +
+                    "冰塊: ${it.getString("ice"  )}\n\n"
+                )
+            }
         }
     }
 
